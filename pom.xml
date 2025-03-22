@@ -34,7 +34,7 @@
 	<build>
 		<resources>
 			<resource>
-				<directory>src/test/resources</directory>
+				<directory>src/test/resources/features</directory>
 				<includes>
 					<include>**/*.properties</include>  <!-- Add any other resource types that you use in tests -->
 				</includes>
