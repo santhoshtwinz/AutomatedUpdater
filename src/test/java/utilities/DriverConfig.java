@@ -11,7 +11,8 @@ public class DriverConfig {
 
     public static WebDriver driver;
 
-    public void setUp() {
+    // Set up WebDriver with a unique user-data-dir
+    public static void setUp() {
         try {
             // Create a unique temporary directory for each session
             Path tempDir = Files.createTempDirectory("chrome-user-data-dir");
@@ -34,15 +35,23 @@ public class DriverConfig {
             // Catch any exceptions and log them
             System.out.println("Error setting up the WebDriver: " + e.getMessage());
             e.printStackTrace();
+            throw new RuntimeException("WebDriver initialization failed", e);  // Rethrow if needed
         }
     }
 
-    public void tearDown() {
+    // Tear down WebDriver after each test
+    public static void tearDown() {
         // Ensure that the driver is not null before quitting
         if (driver != null) {
             driver.quit();
+            driver = null;  // Reset driver to null after quitting
         } else {
             System.out.println("WebDriver was not initialized properly.");
         }
+    }
+
+    // Optionally, you can add a getter for the driver if needed
+    public static WebDriver getDriver() {
+        return driver;
     }
 }
