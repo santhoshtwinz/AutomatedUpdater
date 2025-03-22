@@ -12,7 +12,7 @@ public class LoginPage extends DriverConfig {
 	public static void LoginFunctionality(String username, String password) {
 		NaukriPageFactory pagefactory = new NaukriPageFactory();
 		
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		pagefactory.Login_button.click();
 		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 		pagefactory.userName.click();
@@ -28,7 +28,7 @@ public class LoginPage extends DriverConfig {
 	public static void ProfileFunctionality() {
 		NaukriPageFactory pagefactory = new NaukriPageFactory();
 
-		driver.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		String UserName = pagefactory.profileName.getText();
 		System.out.println("1. The username is " + UserName);
 		String UserWorkProfile = pagefactory.userWorkProfile.getText();
