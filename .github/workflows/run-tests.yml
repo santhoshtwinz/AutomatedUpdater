@@ -1,28 +1,34 @@
-name: Run Selenium Tests Every 10 Minutes
+name: Run Selenium Tests
 
 on:
-  schedule:
-    - cron: '*/10 * * * *'  # Runs the tests every 10 minutes
   push:
     branches:
       - main
+  schedule:
+    - cron: '*/10 * * * *'  # Runs every 10 minutes
 
 jobs:
   test:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-
+        
       - name: Set up JDK
         uses: actions/setup-java@v2
         with:
-          java-version: '11'  # Specify the Java version you need
-          distribution: 'zulu'  # Use Zulu OpenJDK distribution
-
+          java-version: '11'
+          distribution: 'zulu'
+          
       - name: Install dependencies
         run: mvn install  # Install Maven dependencies
 
-      - name: Run Selenium BDD Tests
-        run: mvn test  # Run your tests
+      - name: Run Selenium Tests
+        run: mvn test  # Run your Selenium tests
+        
+      - name: Upload Allure Report
+        if: always()
+        run: |
+          curl -sSL https://github.com/allure-framework/allure2/releases/download/2.18.1/allure-2.18.1.zip -o allure.zip
+          unzip allure.zip -d allure
+          allure serve target/allure-results  # Serve the Allure Report after the tests
