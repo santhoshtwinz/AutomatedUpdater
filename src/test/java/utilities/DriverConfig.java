@@ -24,23 +24,26 @@ public class DriverConfig {
             // Create a unique temporary directory for each session
             Path tempDir = Files.createTempDirectory("chrome-user-data-dir-" + System.currentTimeMillis() + "-" + Thread.currentThread().getId());
 
-
             // Log the directory being used for the user-data-dir argument
             System.out.println("Using user data dir: " + tempDir.toString());
 
             // Set ChromeOptions
             ChromeOptions options = new ChromeOptions();
-            options.addArguments("user-data-dir=" + tempDir.toString());  // Unique user data directory for each session
+
+            // Add the user-data-dir argument for a unique session
+            options.addArguments("user-data-dir=" + tempDir.toString());  
+
+            // Add arguments for headless mode and other necessary flags
+            options.addArguments("--headless");  // Enable headless mode
+            options.addArguments("--no-sandbox");  // Disable sandboxing (required for CI environments)
+            options.addArguments("--disable-dev-shm-usage");  // Prevent issues with shared memory in Docker containers
             options.addArguments("--remote-allow-origins=*");  // Allow cross-origin requests
 
-            // Optionally add any other arguments you may need
-            // options.addArguments("headless");  // Uncomment if running in headless mode
+            // Optionally, you can add other Chrome flags as needed
+            // options.addArguments("--window-size=1920x1080");  // Set window size if needed in headless mode
 
             // Initialize WebDriver with ChromeOptions
             driver = new ChromeDriver(options);
-
-            // Maximize the window
-            driver.manage().window().maximize();
 
         } catch (IOException e) {
             System.out.println("Error setting up the WebDriver: " + e.getMessage());
