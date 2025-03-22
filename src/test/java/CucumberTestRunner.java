@@ -1,4 +1,4 @@
-package deployable_Project;  // Use the correct package for your project
+package AutomatedUpdater;  // Use the correct package for your project
 
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
