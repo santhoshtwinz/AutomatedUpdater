@@ -31,7 +31,7 @@ jobs:
         run: echo "Test file for artifact upload" > target/screenshots/test.txt
 
       - name: Upload test file as artifact
-        uses: actions/upload-artifact
+        uses: actions/upload-artifact@v4
         with:
          name: test-artifact
          path: target/screenshots/test.txt
