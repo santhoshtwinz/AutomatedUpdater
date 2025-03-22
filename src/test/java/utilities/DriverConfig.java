@@ -38,6 +38,8 @@ public class DriverConfig {
             options.addArguments("--no-sandbox");  // Disable sandboxing (required for CI environments)
             options.addArguments("--disable-dev-shm-usage");  // Prevent issues with shared memory in Docker containers
             options.addArguments("--remote-allow-origins=*");  // Allow cross-origin requests
+            options.setPageLoadStrategy(PageLoadStrategy.NORMAL);  // Wait until the page is fully loaded
+
 
             // Optionally, you can add other Chrome flags as needed
             // options.addArguments("--window-size=1920x1080");  // Set window size if needed in headless mode
