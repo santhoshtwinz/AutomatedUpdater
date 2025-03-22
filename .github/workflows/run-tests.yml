@@ -2,10 +2,10 @@ name: Run Selenium Tests Every 10 Minutes
 
 on:
   schedule:
-    - cron: '*/10 * * * *'  # This runs the tests every 10 minutes
+    - cron: '*/10 * * * *'  # Runs the tests every 10 minutes
   push:
     branches:
-      - main  # Optionally, you can also trigger tests when changes are pushed to the main branch
+      - main
 
 jobs:
   test:
@@ -18,12 +18,11 @@ jobs:
       - name: Set up JDK
         uses: actions/setup-java@v2
         with:
-          java-version: '11'  # Ensure this matches the Java version your project uses
+          java-version: '11'  # Use the Java version that your project uses
+          distribution: 'adoptopenjdk'  # Specify the JDK distribution (e.g., adoptopenjdk, zulu, etc.)
 
       - name: Install dependencies
-        run: |
-          mvn install  # Install Maven dependencies if needed
+        run: mvn install  # Install Maven dependencies
 
       - name: Run Selenium BDD Tests
-        run: |
-          mvn test  # Adjust this if you're using a different command to run your tests
+        run: mvn test  # Run your tests
