@@ -18,8 +18,8 @@ jobs:
       - name: Set up JDK
         uses: actions/setup-java@v2
         with:
-          java-version: '11'       # Specify the Java version you need
-          distribution: 'adoptopenjdk'  # Use the valid distribution name
+          java-version: '11'  # Specify the Java version you need
+          distribution: 'zulu'  # Use Zulu OpenJDK distribution
 
       - name: Install dependencies
         run: mvn install  # Install Maven dependencies
