@@ -10,12 +10,17 @@ import utilities.DriverConfig;
 
 public class ProfileLogin extends DriverConfig {
 
+	@Before  // Cucumber hook to run before each scenario
+        public void setUpBefore() {
+          setUp();
+        }
+	
 	@Given("User navigates to Naukri webpage")
         public void user_navigates_to_Naukri_webpage() {
         if (driver == null) {
            throw new RuntimeException("WebDriver not initialized");
         }
-         driver.get("https://www.naukri.com");
+           driver.get("https://www.naukri.com");
         }
 
 
