@@ -6,17 +6,15 @@ import io.cucumber.java.en.Given;
 
 
 import methods.LoginPage;
+import org.openqa.selenium.WebDriver;
 import utilities.DriverConfig;
 
 public class ProfileLogin extends DriverConfig {
 
+	WebDriver driver = DriverConfig.getDriver();
 	
 	@Given("User navigates to Naukri webpage")
         public void user_navigates_to_Naukri_webpage() {
-	setUp();
-        if (driver == null) {
-           throw new RuntimeException("WebDriver not initialized");
-        }
            driver.get("https://www.naukri.com");
         }
 
