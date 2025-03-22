@@ -20,7 +20,10 @@ public class ProfileLogin extends DriverConfig {
            String currentUrl = driver.getCurrentUrl();
            System.out.println("Current webpage URL: " + currentUrl);
 	   ScreenshotUtil.takeScreenshot(driver, "naukri_homepage"); // Take screenshot of homepage
-
+	   System.out.println("The screenshot is taken ");
+	   String pageSource = driver.getPageSource();
+           System.out.println("The page source is "+pageSource);
+ 
 		
         }
 
