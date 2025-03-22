@@ -4,10 +4,10 @@ import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.Given;
 
-
 import methods.LoginPage;
 import org.openqa.selenium.WebDriver;
 import utilities.DriverConfig;
+import utilities.ScreenshotUtil;
 
 public class ProfileLogin extends DriverConfig {
 
@@ -19,6 +19,8 @@ public class ProfileLogin extends DriverConfig {
            System.out.println("We are navigating to Naukri.com");
            String currentUrl = driver.getCurrentUrl();
            System.out.println("Current webpage URL: " + currentUrl);
+	   ScreenshotUtil.takeScreenshot(driver, "naukri_homepage"); // Take screenshot of homepage
+
 		
         }
 
@@ -27,6 +29,8 @@ public class ProfileLogin extends DriverConfig {
 	public void the_user_login_and_enters_valid_username_and_Automation(String username, String password) {
 	        String pageTitle = driver.getTitle();
                 System.out.println("Page Title: " + pageTitle);
+	        ScreenshotUtil.takeScreenshot(driver, "naukri_title"); // Take screenshot of homepage
+
 		LoginPage.LoginFunctionality(username, password);
 	}
 
