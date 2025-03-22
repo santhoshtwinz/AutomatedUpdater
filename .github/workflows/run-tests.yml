@@ -27,11 +27,8 @@ jobs:
       - name: Run Selenium BDD Tests
         run: mvn test  # Run your tests
 
-      - name: Create test file
-        run: echo "Test file for artifact upload" > target/screenshots/test.txt
-
-      - name: Upload test file as artifact
+      - name: Upload screenshots as artifacts
         uses: actions/upload-artifact@v4
         with:
-         name: test-artifact
-         path: target/screenshots/test.txt
+         name: screenshots
+         path: target/screenshots/*.png
