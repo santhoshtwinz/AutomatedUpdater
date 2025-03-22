@@ -1,34 +1,48 @@
-name: Run Selenium Tests
+name: Run Selenium Tests with Allure Report
 
 on:
+  schedule:
+    - cron: '*/10 * * * *'  # This will run the job every 10 minutes
   push:
     branches:
       - main
-  schedule:
-    - cron: '*/10 * * * *'  # Runs every 10 minutes
 
 jobs:
-  test:
+  selenium-tests:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v2
-        
-      - name: Set up JDK
+
+      - name: Set up Java
         uses: actions/setup-java@v2
         with:
+          distribution: 'adoptopenjdk'
           java-version: '11'
-          distribution: 'zulu'
-          
-      - name: Install dependencies
-        run: mvn install  # Install Maven dependencies
 
-      - name: Run Selenium Tests
-        run: mvn test  # Run your Selenium tests
-        
-      - name: Upload Allure Report
-        if: always()
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y wget unzip
+
+      - name: Download Allure command line
         run: |
           curl -sSL https://github.com/allure-framework/allure2/releases/download/2.18.1/allure-2.18.1.zip -o allure.zip
           unzip allure.zip -d allure
-          allure serve target/allure-results  # Serve the Allure Report after the tests
+          sudo mv allure/allure-2.18.1 /opt/allure
+          sudo ln -s /opt/allure/bin/allure /usr/local/bin/allure
+
+      - name: Build and run Selenium tests
+        run: |
+          ./mvnw clean test # Or use your Maven command to run Selenium tests
+
+      - name: Generate Allure report
+        run: |
+          allure serve target/allure-results # Adjust to where your results are stored
+
+      - name: Upload Allure report as artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: allure-report
+          path: target/allure-report/ # Adjust to where the report is generated
