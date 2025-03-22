@@ -22,7 +22,8 @@ public class DriverConfig {
     public static void setUp() {
         try {
             // Create a unique temporary directory for each session
-            Path tempDir = Files.createTempDirectory("chrome-user-data-dir-" + System.currentTimeMillis());
+            Path tempDir = Files.createTempDirectory("chrome-user-data-dir-" + System.currentTimeMillis() + "-" + Thread.currentThread().getId());
+
 
             // Log the directory being used for the user-data-dir argument
             System.out.println("Using user data dir: " + tempDir.toString());
