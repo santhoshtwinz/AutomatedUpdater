@@ -1,15 +1,14 @@
-package AutomatedUpdater;  // Use the correct package for your project
+package AutomatedUpdater.stepDefinitions;  // Use the correct package name
 
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 import org.junit.runner.RunWith;
 
-// Specify that JUnit should run this class with Cucumber
 @RunWith(Cucumber.class)
 @CucumberOptions(
     features = "src/test/resources/features",  // Path to your feature files
-    glue = "src/test/java/stepDefinitions",  // Correct package where your step definitions are
-    plugin = {"pretty", "html:target/cucumber-report.html"} // Optional: Generate a report
+    glue = "AutomatedUpdater.stepDefinitions",  // Path to your step definition classes
+    plugin = {"pretty", "html:target/cucumber-report.html"}  // Optional reporting
 )
 public class CucumberTestRunner {
 }
