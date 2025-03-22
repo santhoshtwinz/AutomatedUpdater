@@ -19,7 +19,6 @@ jobs:
         uses: actions/setup-java@v2
         with:
           java-version: '11'  # Use the Java version that your project uses
-          distribution: 'adoptopenjdk'  # Specify the JDK distribution (e.g., adoptopenjdk, zulu, etc.)
 
       - name: Install dependencies
         run: mvn install  # Install Maven dependencies
