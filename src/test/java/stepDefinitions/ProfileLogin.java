@@ -16,6 +16,7 @@ public class ProfileLogin extends DriverConfig {
 	@Given("User navigates to Naukri webpage")
         public void user_navigates_to_Naukri_webpage() {
            driver.get("https://www.naukri.com");
+		system.out.println ("We are navigating to Naukri.com")
         }
 
 
