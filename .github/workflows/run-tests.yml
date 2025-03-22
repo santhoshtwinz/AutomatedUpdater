@@ -28,7 +28,7 @@ jobs:
         run: mvn test  # Run your tests
 
       - name: Upload screenshots as artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v2.3.0
         with:
          name: screenshots
          path: target/screenshots/*.png  # Path to the screenshots
