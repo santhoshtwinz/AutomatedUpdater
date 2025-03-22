@@ -2,7 +2,7 @@ name: Run Selenium Tests Every 10 Minutes
 
 on:
   schedule:
-    - cron: '*/10 * * * *'  # Runs the tests every 10 minutes
+    - cron: '0 0 */3 * *'  # Runs the tests every 3 days at midnight UTC
   push:
     branches:
       - main
@@ -27,8 +27,11 @@ jobs:
       - name: Run Selenium BDD Tests
         run: mvn test  # Run your tests
 
-      - name: Upload screenshots as artifacts
-        uses: actions/upload-artifact@v2.3.0
+      - name: Create test file
+        run: echo "Test file for artifact upload" > target/screenshots/test.txt
+
+      - name: Upload test file as artifact
+        uses: actions/upload-artifact@v2
         with:
-         name: screenshots
-         path: target/screenshots/*.png  # Path to the screenshots
+         name: test-artifact
+         path: target/screenshots/test.txt
