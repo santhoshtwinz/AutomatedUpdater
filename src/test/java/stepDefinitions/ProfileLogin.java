@@ -15,7 +15,7 @@ public class ProfileLogin extends DriverConfig {
 	
 	@Given("User navigates to Naukri webpage")
         public void user_navigates_to_Naukri_webpage() {
-           driver.get("https://www.naukri.com/");
+           driver.get("https://www.yahoo.com/");
            System.out.println("We are navigating to Naukri.com");
            String currentUrl = driver.getCurrentUrl();
            System.out.println("Current webpage URL: " + currentUrl);
