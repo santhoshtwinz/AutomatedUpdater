@@ -2,7 +2,7 @@ package stepDefinitions;
 
 import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
-import io.cucumber.java.en.Before;
+import io.cucumber.java.en.Given;
 
 
 import methods.LoginPage;
