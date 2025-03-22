@@ -42,7 +42,7 @@ jobs:
           allure serve target/allure-results # Adjust to where your results are stored
 
       - name: Upload Allure report as artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3  # Use v3 instead of v2
         with:
           name: allure-report
           path: target/allure-report/ # Adjust to where the report is generated
