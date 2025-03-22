@@ -19,11 +19,14 @@ public class ProfileLogin extends DriverConfig {
            System.out.println("We are navigating to Naukri.com");
            String currentUrl = driver.getCurrentUrl();
            System.out.println("Current webpage URL: " + currentUrl);
+		
         }
 
 
 	@When("^the user login and enters valid (.*) and (.*)$")
 	public void the_user_login_and_enters_valid_username_and_Automation(String username, String password) {
+	        String pageTitle = driver.getTitle();
+                System.out.println("Page Title: " + pageTitle);
 		LoginPage.LoginFunctionality(username, password);
 	}
 
