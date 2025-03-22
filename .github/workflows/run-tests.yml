@@ -19,7 +19,7 @@ jobs:
         uses: actions/setup-java@v2
         with:
           java-version: '11'       # Specify the Java version you need
-          distribution: 'adoptium' # Correct distribution (AdoptOpenJDK is now Adoptium)
+          distribution: 'adoptopenjdk'  # Use the valid distribution name
 
       - name: Install dependencies
         run: mvn install  # Install Maven dependencies
