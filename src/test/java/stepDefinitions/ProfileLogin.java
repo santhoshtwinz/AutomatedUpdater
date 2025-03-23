@@ -29,7 +29,8 @@ public class ProfileLogin extends DriverConfig {
             // Find the search bar using its name attribute and type "naukri"
            WebElement searchBox = driver.findElement(By.name("q"));
            searchBox.sendKeys("naukri");
-           searchBox.sendKeys(Keys.ENTER);   // Equivalent, works the same
+           searchBox.sendKeys(Keys.ENTER);
+	   ScreenshotUtil.takeScreenshot(driver, "search_s"); // Take screenshot of homepage
 	    // Press the Enter key to start the search
            System.out.println("searching for naukri");
            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(8));  // Wait for up to 8 seconds
