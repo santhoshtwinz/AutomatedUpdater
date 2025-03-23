@@ -31,14 +31,14 @@ public class ProfileLogin extends DriverConfig {
            System.out.println("searching for naukri");
 	   ScreenshotUtil.takeScreenshot(driver, "search_homepage"); // Take screenshot of homepage
             // Wait for the results to load and click on the first search result link
-           WebElement firstLink = driver.findElement(By.xpath("//h3[contains(text(), 'Naukri.com: Jobs')]"));
-           firstLink.click();  // Click on the first result
-           String currentUrl = driver.getCurrentUrl();
-           System.out.println("Current webpage URL: " + currentUrl);
-	   ScreenshotUtil.takeScreenshot(driver, "naukri_homepage"); // Take screenshot of homepage
-	   System.out.println("The screenshot is taken ");
-	   String pageSource = driver.getPageSource();
-           System.out.println("The page source is "+pageSource);
+    //        WebElement firstLink = driver.findElement(By.xpath("//h3[contains(text(), 'Naukri.com: Jobs')]"));
+    //        firstLink.click();  // Click on the first result
+    //        String currentUrl = driver.getCurrentUrl();
+    //        System.out.println("Current webpage URL: " + currentUrl);
+	   // ScreenshotUtil.takeScreenshot(driver, "naukri_homepage"); // Take screenshot of homepage
+	   // System.out.println("The screenshot is taken ");
+	   // String pageSource = driver.getPageSource();
+    //        System.out.println("The page source is "+pageSource);
  
 		
         }
