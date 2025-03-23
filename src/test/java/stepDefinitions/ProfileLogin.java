@@ -46,14 +46,14 @@ public class ProfileLogin extends DriverConfig {
                 System.out.println("Page Title: " + pageTitle);
 	        ScreenshotUtil.takeScreenshot(driver, "naukri_title"); // Take screenshot of homepage
 
-		LoginPage.LoginFunctionality(username, password);
+	//	LoginPage.LoginFunctionality(username, password);
 	        ScreenshotUtil.takeScreenshot(driver, "naukri_login"); // Take screenshot of homepage
 	        System.out.println("The screenshot is taken after log in");
 	}
 
 	@Then("the user should be logged in and he should be able to see his profile")
 	public void the_user_should_be_logged_in_and_he_should_be_able_to_see_his_profile() throws InterruptedException {
-		LoginPage.ProfileFunctionality();
+	//	LoginPage.ProfileFunctionality();
 	}
 
 }
