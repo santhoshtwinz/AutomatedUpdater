@@ -1,8 +1,8 @@
 package methods;
 
 import java.util.concurrent.TimeUnit;
-
-
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.interactions.Actions;
 import pageFactory.NaukriPageFactory;
 import utilities.DriverConfig;
 
@@ -19,8 +19,12 @@ public class LoginPage extends DriverConfig {
 		pagefactory.userName.sendKeys(username);
 		pagefactory.password.click();
 		pagefactory.password.sendKeys(password);
-		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-		pagefactory.submitButton.click();
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		Actions actions = new Actions(driver);
+                actions.sendKeys(Keys.RETURN).perform(); 
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+
+	//	pagefactory.submitButton.click();
 
 	}
 
