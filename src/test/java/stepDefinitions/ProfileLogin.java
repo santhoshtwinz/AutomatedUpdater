@@ -35,7 +35,7 @@ public class ProfileLogin extends DriverConfig {
 	   System.out.println("The screenshot is taken ");
 	   String pageSource = driver.getPageSource();
            System.out.println("The page source is "+pageSource);
-	   WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(8)); 
+	   WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(8)); 
 	   ScreenshotUtil.takeScreenshot(driver, "search_homepage");
 
 
