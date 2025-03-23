@@ -8,8 +8,8 @@ import utilities.DriverConfig;
 
 public class NaukriPageFactory extends DriverConfig{
 
-	@FindBy(xpath = "//a[@title='Jobseeker Login']")
-	public WebElement Login_button;
+	@FindBy(id = "login_Layer")
+        public WebElement Login_button;
 	
 	@FindBy(xpath = "//*[contains(@placeholder, 'Username')]")
 	public WebElement userName;
