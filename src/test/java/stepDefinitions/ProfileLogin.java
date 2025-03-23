@@ -47,7 +47,10 @@ public class ProfileLogin extends DriverConfig {
 	        ScreenshotUtil.takeScreenshot(driver, "naukri_title"); // Take screenshot of homepage
 
 		LoginPage.LoginFunctionality(username, password);
+		WebDriverWait wait2 = new WebDriverWait(driver, Duration.ofSeconds(8)); 
+
 	        ScreenshotUtil.takeScreenshot(driver, "naukri_login"); // Take screenshot of homepage
+
 	        System.out.println("The screenshot is taken after log in");
 	}
 
