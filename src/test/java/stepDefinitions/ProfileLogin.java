@@ -21,16 +21,17 @@ public class ProfileLogin extends DriverConfig {
 	@Given("User navigates to Naukri webpage")
         public void user_navigates_to_Naukri_webpage() {
             // Navigate to Google
-            driver.get("https://www.google.com");
+           driver.get("https://www.google.com");
 
             // Find the search bar using its name attribute and type "naukri"
-            WebElement searchBox = driver.findElement(By.name("q"));
-            searchBox.sendKeys("naukri");
-            searchBox.sendKeys(Keys.RETURN);  // Press the Enter key to start the search
-
+           WebElement searchBox = driver.findElement(By.name("q"));
+           searchBox.sendKeys("naukri");
+           searchBox.sendKeys(Keys.RETURN);
+	    // Press the Enter key to start the search
+           System.out.println("searching for naukri");
             // Wait for the results to load and click on the first search result link
-            WebElement firstLink = driver.findElement(By.cssSelector("h3"));
-            firstLink.click();
+           WebElement firstLink = driver.findElement(By.xpath("//h3[contains(text(), 'Naukri.com: Jobs')]"));
+           firstLink.click();  // Click on the first result
            String currentUrl = driver.getCurrentUrl();
            System.out.println("Current webpage URL: " + currentUrl);
 	   ScreenshotUtil.takeScreenshot(driver, "naukri_homepage"); // Take screenshot of homepage
