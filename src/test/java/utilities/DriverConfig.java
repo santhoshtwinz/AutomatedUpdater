@@ -6,7 +6,6 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.io.IOException;
-import java.nio.file.StandardCopyOption;
 
 public class DriverConfig {
 
@@ -34,14 +33,19 @@ public class DriverConfig {
             options.addArguments("user-data-dir=" + tempDir.toString());  
 
             // Add arguments for headless mode and other necessary flags
-            options.addArguments("--headless");  // Enable headless mode
+            options.addArguments("--headless");  // Enable headless mode (remove this if you want a visible browser)
             options.addArguments("--no-sandbox");  // Disable sandboxing (required for CI environments)
             options.addArguments("--disable-dev-shm-usage");  // Prevent issues with shared memory in Docker containers
             options.addArguments("--remote-allow-origins=*");  // Allow cross-origin requests
 
+            // Custom User-Agent to simulate a real user browser
+            options.addArguments("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36");
 
-            // Optionally, you can add other Chrome flags as needed
-            // options.addArguments("--window-size=1920x1080");  // Set window size if needed in headless mode
+            // Additional headers, for example, setting Accept-Language
+            options.addArguments("accept-language=en-US,en;q=0.9");
+
+            // Start Chrome in full screen (maximize the window)
+            options.addArguments("--start-maximized");  // Full screen mode
 
             // Initialize WebDriver with ChromeOptions
             driver = new ChromeDriver(options);
