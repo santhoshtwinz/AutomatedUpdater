@@ -33,8 +33,6 @@ public class ProfileLogin extends DriverConfig {
            System.out.println("Current webpage URL: " + currentUrl);
 	   ScreenshotUtil.takeScreenshot(driver, "naukri_homepage"); // Take screenshot of homepage
 	   System.out.println("The screenshot is taken ");
-	   String pageSource = driver.getPageSource();
-           System.out.println("The page source is "+pageSource);
 	   WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(8)); 
 	   ScreenshotUtil.takeScreenshot(driver, "search_homepage");
  
@@ -49,6 +47,8 @@ public class ProfileLogin extends DriverConfig {
 	        ScreenshotUtil.takeScreenshot(driver, "naukri_title"); // Take screenshot of homepage
 
 		LoginPage.LoginFunctionality(username, password);
+	        ScreenshotUtil.takeScreenshot(driver, "naukri_login"); // Take screenshot of homepage
+	        System.out.println("The screenshot is taken after log in");
 	}
 
 	@Then("the user should be logged in and he should be able to see his profile")
