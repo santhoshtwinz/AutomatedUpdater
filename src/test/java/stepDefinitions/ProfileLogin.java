@@ -29,6 +29,7 @@ public class ProfileLogin extends DriverConfig {
            searchBox.sendKeys(Keys.RETURN);
 	    // Press the Enter key to start the search
            System.out.println("searching for naukri");
+	   ScreenshotUtil.takeScreenshot(driver, "search_homepage"); // Take screenshot of homepage
             // Wait for the results to load and click on the first search result link
            WebElement firstLink = driver.findElement(By.xpath("//h3[contains(text(), 'Naukri.com: Jobs')]"));
            firstLink.click();  // Click on the first result
