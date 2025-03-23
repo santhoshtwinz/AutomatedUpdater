@@ -46,7 +46,7 @@ public class ProfileLogin extends DriverConfig {
                 System.out.println("Page Title: " + pageTitle);
 	        ScreenshotUtil.takeScreenshot(driver, "naukri_title"); // Take screenshot of homepage
 
-	//	LoginPage.LoginFunctionality(username, password);
+		LoginPage.LoginFunctionality(username, password);
 	        ScreenshotUtil.takeScreenshot(driver, "naukri_login"); // Take screenshot of homepage
 	        System.out.println("The screenshot is taken after log in");
 	}
