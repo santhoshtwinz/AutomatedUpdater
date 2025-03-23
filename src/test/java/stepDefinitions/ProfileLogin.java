@@ -37,27 +37,6 @@ public class ProfileLogin extends DriverConfig {
            System.out.println("The page source is "+pageSource);
 	   WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(8)); 
 	   ScreenshotUtil.takeScreenshot(driver, "search_homepage");
-
-
-    //        WebElement searchBox = driver.findElement(By.name("q"));
-    //        searchBox.sendKeys("naukri");
-    //        searchBox.sendKeys(Keys.ENTER);
-	   // ScreenshotUtil.takeScreenshot(driver, "search_s"); // Take screenshot of homepage
-	   //  // Press the Enter key to start the search
-    //        System.out.println("searching for naukri");
-    //        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(8));  // Wait for up to 8 seconds
-	   // ScreenshotUtil.takeScreenshot(driver, "search_homepage"); // Take screenshot of homepage
-            // Wait for the results to load and click on the first search result link
-	//   WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h3[contains(text(), 'Naukri.com: Jobs')]")));  // Wait until the element is visible
-
-    //        WebElement firstLink = driver.findElement(By.xpath("//h3[contains(text(), 'Naukri.com: Jobs')]"));
-    //        firstLink.click();  // Click on the first result
-    //        String currentUrl = driver.getCurrentUrl();
-    //        System.out.println("Current webpage URL: " + currentUrl);
-	   // ScreenshotUtil.takeScreenshot(driver, "naukri_homepage"); // Take screenshot of homepage
-	   // System.out.println("The screenshot is taken ");
-	   // String pageSource = driver.getPageSource();
-    //        System.out.println("The page source is "+pageSource);
  
 		
         }
